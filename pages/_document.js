@@ -1,50 +1,82 @@
 import Document, { Html, Head, Main, NextScript } from 'next/document';
-import Script from 'next/script';
 
-class MyDocument extends Document {
-  static async getInitialProps(ctx) {
-    const originalRenderPage = ctx.renderPage;
+function setInitialColorMode() {
+  function getInitialColorMode() {
+    const preference = window.localStorage.getItem('theme');
 
-    // Run the React rendering logic synchronously
-    ctx.renderPage = () =>
-      originalRenderPage({
-        // Useful for wrapping the whole react tree
-        enhanceApp: (App) => App,
-        // Useful for wrapping in a per-page basis
-        enhanceComponent: (Component) => Component
-      });
+    const hasExplicitPreference = typeof preference === 'string';
 
-    // Run the parent `getInitialProps`, it now includes the custom `renderPage`
-    const initialProps = await Document.getInitialProps(ctx);
+    /**
+  
+       * If the user has explicitly chosen light or dark,
+  
+       * use it. Otherwise, this value will be null.
+  
+       */
 
-    return initialProps;
+    if (hasExplicitPreference) {
+      return preference;
+    }
+
+    // If there is no saved preference, use a media query
+
+    const mediaQuery = '(prefers-color-scheme: dark)';
+
+    const mql = window.matchMedia(mediaQuery);
+
+    const hasImplicitPreference = typeof mql.matches === 'boolean';
+
+    if (hasImplicitPreference) {
+      return mql.matches ? 'dark' : 'light';
+    }
+
+    // default to 'light'.
+
+    return 'light';
   }
 
+  const colorMode = getInitialColorMode();
+
+  const root = document.documentElement;
+
+  root.style.setProperty('--initial-color-mode', colorMode);
+
+  // add HTML attribute if dark mode
+
+  if (colorMode === 'dark')
+    document.documentElement.setAttribute('data-theme', 'dark');
+}
+
+// our function needs to be a string
+
+const blockingSetInitialColorMode = `(function() {
+  
+          ${setInitialColorMode.toString()}
+  
+          setInitialColorMode();
+  
+  })()
+  
+  `;
+
+export default class MyDocument extends Document {
   render() {
     return (
-      <Html lang='en-US'>
-        <Head>
-          <meta charSet='utf-8' />
-        </Head>
+      <Html>
+        <Head />
+
         <body>
-          <Main />
-          <NextScript />
-          <Script
-            id='theme'
-            strategy='beforeInteractive'
+          <script
             dangerouslySetInnerHTML={{
-              __html: `(function initTheme() {
-                var theme = localStorage.getItem('theme') || 'light';
-                if (theme === 'dark') {
-                  document.querySelector('html').setAttribute('data-theme', 'dark');
-                }
-              })();`
+              __html: blockingSetInitialColorMode
             }}
-          />
+          ></script>
+
+          <Main />
+
+          <NextScript />
         </body>
       </Html>
     );
   }
 }
-
-export default MyDocument;
