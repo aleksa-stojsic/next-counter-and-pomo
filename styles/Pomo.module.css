@@ -1,0 +1,89 @@
+.card {
+  width: 32rem;
+  height: 52rem;
+  border-radius: 10px;
+  box-shadow: 0px 0px 10px var(--border-color);
+  background-color: var(--card-color);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.2s ease, box-shadow 0.2s ease;
+  -webkit-transition: background-color 0.2s ease, box-shadow 0.2s ease;
+  -moz-transition: background-color 0.2s ease, box-shadow 0.2s ease;
+  -ms-transition: background-color 0.2s ease, box-shadow 0.2s ease;
+  -o-transition: background-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+/* count with round border */
+.count {
+  display: flex;
+  font-size: 2.8rem;
+  margin: 1.5rem;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid rgb(100, 65, 165);
+  border-radius: 50%;
+  height: 10rem;
+  width: 10rem;
+  box-shadow: 0 0 10px rgba(100, 65, 165, 0.6);
+  background-color: var(--card-color);
+  color: var(--font-color);
+  font-weight: bold;
+  transition: background-color 0.2s ease;
+  -webkit-transition: background-color 0.2s ease;
+  -moz-transition: background-color 0.2s ease;
+  -ms-transition: background-color 0.2s ease;
+  -o-transition: background-color 0.2s ease;
+}
+
+.plusMinus {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+.plusMinus button {
+  width: 4rem;
+  height: 4rem;
+  border-radius: 50%;
+  border: none;
+}
+
+.pomoBtn {
+  background-color: #6441a5;
+  color: #fff;
+  margin-bottom: 1rem;
+}
+
+.pomoBtn:hover {
+  background-color: #51338d;
+}
+
+.pomoBtn:active {
+  background-color: #4b2f7c;
+}
+
+.status {
+  text-transform: uppercase;
+  color: #6441a5;
+}
+
+.minus {
+  /* color material dark red */
+  color: #b71c1c;
+}
+
+.plus {
+  /* color material dark green */
+  color: #1b5e20;
+}
+
+.options {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
