@@ -4,4 +4,11 @@
   align-items: center;
   justify-content: center;
   height: calc(100vh - calc(100vh - 100%));
+  background-color: var(--background-color);
+  color: var(--font-color);
+  transition: background-color 0.2s ease, color 0.2s ease;
+  -webkit-transition: background-color 0.2s ease, color 0.2s ease;
+  -moz-transition: background-color 0.2s ease, color 0.2s ease;
+  -ms-transition: background-color 0.2s ease, color 0.2s ease;
+  -o-transition: background-color 0.2s ease, color 0.2s ease;
 }

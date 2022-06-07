@@ -37,8 +37,6 @@ function setInitialColorMode() {
 
   const colorMode = getInitialColorMode();
 
-  const root = document.documentElement;
-
   // add HTML attribute if dark mode
 
   if (colorMode === 'dark')
