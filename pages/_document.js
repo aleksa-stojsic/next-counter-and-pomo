@@ -1,4 +1,5 @@
 import Document, { Html, Head, Main, NextScript } from 'next/document';
+import Script from 'next/script';
 
 class MyDocument extends Document {
   static async getInitialProps(ctx) {
@@ -24,11 +25,22 @@ class MyDocument extends Document {
       <Html lang='en-US'>
         <Head>
           <meta charSet='utf-8' />
-          <script type='text/javascript' src='/theme.js' />
         </Head>
         <body>
           <Main />
           <NextScript />
+          <Script
+            id='theme'
+            strategy='beforeInteractive'
+            dangerouslySetInnerHTML={{
+              __html: `(function initTheme() {
+                var theme = localStorage.getItem('theme') || 'light';
+                if (theme === 'dark') {
+                  document.querySelector('html').setAttribute('data-theme', 'dark');
+                }
+              })();`
+            }}
+          />
         </body>
       </Html>
     );
