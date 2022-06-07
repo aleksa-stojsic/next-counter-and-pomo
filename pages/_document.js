@@ -39,8 +39,6 @@ function setInitialColorMode() {
 
   const root = document.documentElement;
 
-  root.style.setProperty('--initial-color-mode', colorMode);
-
   // add HTML attribute if dark mode
 
   if (colorMode === 'dark')
@@ -62,7 +60,7 @@ const blockingSetInitialColorMode = `(function() {
 export default class MyDocument extends Document {
   render() {
     return (
-      <Html>
+      <Html lang='en'>
         <Head />
 
         <body>

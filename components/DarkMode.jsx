@@ -25,7 +25,6 @@ const defaultDark =
 let checkBox = !ISSERVER ? document.getElementById('checkbox') : null;
 
 if (defaultDark) {
-  setDark();
   checkBox.checked = true;
 }
 
