@@ -66,10 +66,10 @@ export default function Pomo() {
             }
           });
         }, 1000);
-        setPomodoro(false);
         setAuto(false);
         setCount('🏁');
         setWork('✔️ Work done, great job!');
+        setPomodoro(false);
         setTimeout(() => {
           confetti.reset();
         }, 4000);
@@ -118,8 +118,14 @@ export default function Pomo() {
 
   const controlPomodoro = () => {
     if (!pomodoro) {
-      setCount(20); //for testing purposes use 3-5, 1800sec = 30min
-      setMaxCount(20);
+      let initialCount = count;
+      if (initialCount !== 0) {
+        setCount(Math.abs(initialCount) * 60);
+        setMaxCount(Math.abs(initialCount) * 60);
+      } else {
+        setCount(30 * 60); // default to 30 minutes if count is 0
+        setMaxCount(30 * 60);
+      }
       setPomodoro(true);
       setAutoDown(true);
       setAuto(true);
@@ -130,7 +136,20 @@ export default function Pomo() {
       setWork('🍅 Start working');
       setAuto(false);
     }
+
+    if (count === '🏁') {
+      setCount(0);
+      setMaxCount(1);
+      setPomodoro(false);
+      setWork('🍅 Start working');
+      setAuto(false);
+    }
     console.log('pomodoro: ', !pomodoro);
+  };
+
+  const setCountTo30 = () => {
+    setCount(30);
+    setMaxCount(1);
   };
 
   const minutes = String(Math.floor(count / 60)).padStart(2, '0');
@@ -172,6 +191,13 @@ export default function Pomo() {
               disabled={pomodoro}
             >
               -1
+            </button>
+            <button
+              onClick={setCountTo30}
+              className='btn btn-primary btn-square mx-2 text-2xl'
+              disabled={pomodoro}
+            >
+              30
             </button>
             <button
               onClick={upOne}
