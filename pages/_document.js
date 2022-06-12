@@ -7,12 +7,9 @@ function setInitialColorMode() {
     const hasExplicitPreference = typeof preference === 'string';
 
     /**
-  
-       * If the user has explicitly chosen light or dark,
-  
-       * use it. Otherwise, this value will be null.
-  
-       */
+     * If the user has explicitly chosen light or dark,
+     * use it. Otherwise, this value will be null.
+     */
 
     if (hasExplicitPreference) {
       return preference;
@@ -48,30 +45,22 @@ function setInitialColorMode() {
 // our function needs to be a string
 
 const blockingSetInitialColorMode = `(function() {
-  
           ${setInitialColorMode.toString()}
-  
           setInitialColorMode();
-  
-  })()
-  
-  `;
+  })()`;
 
 export default class MyDocument extends Document {
   render() {
     return (
       <Html lang='en'>
         <Head />
-
         <body>
           <script
             dangerouslySetInnerHTML={{
               __html: blockingSetInitialColorMode
             }}
           ></script>
-
           <Main />
-
           <NextScript />
         </body>
       </Html>

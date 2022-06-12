@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import confetti from 'canvas-confetti';
+import { Howl } from 'howler';
 
 export default function Pomo() {
   const [count, setCount] = useState(0);
@@ -32,6 +33,10 @@ export default function Pomo() {
       }
 
       if (count === 0 && pomodoro) {
+        const sound = new Howl({
+          src: ['firework.mp3']
+        });
+        sound.play();
         confetti({
           particleCount: 150,
           startVelocity: 30,
@@ -43,6 +48,7 @@ export default function Pomo() {
           }
         });
         setTimeout(() => {
+          sound.play();
           confetti({
             particleCount: 150,
             startVelocity: 30,
@@ -55,6 +61,7 @@ export default function Pomo() {
           });
         }, 500);
         setTimeout(() => {
+          sound.play();
           confetti({
             particleCount: 150,
             startVelocity: 30,
