@@ -1,5 +1,3 @@
-import styles from '../styles/DarkMode.module.css';
-
 const ISSERVER = typeof window === 'undefined';
 
 const setDark = () => {
@@ -38,13 +36,17 @@ const toggleTheme = (e) => {
 
 export default function DarkMode() {
   return (
-    <div className={styles.toggleThemeWrapper}>
-      <span>☀️</span>
-      <label className={styles.toggleTheme} htmlFor='checkbox'>
-        <input type='checkbox' id='checkbox' onChange={toggleTheme} />
-        <div className={`${styles.slider} ${styles.round}`}></div>
+    <div className='form-control flex flex-row justify-center items-center mt-auto'>
+      <span className='label-text text-3xl mr-1'>☀️</span>
+      <label className='label cursor-pointer' htmlFor='checkbox'>
+        <input
+          type='checkbox'
+          className='toggle toggle-primary toggle-lg rounded-full'
+          id='checkbox'
+          onChange={toggleTheme}
+        />
       </label>
-      <span>🌒</span>
+      <span className='label-text text-3xl ml-1'>🌒</span>
     </div>
   );
 }
