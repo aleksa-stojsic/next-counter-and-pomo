@@ -4,12 +4,12 @@ const ISSERVER = typeof window === 'undefined';
 
 const setDark = () => {
   localStorage.setItem('theme', 'dark');
-  document.documentElement.setAttribute('data-theme', 'dark');
+  document.documentElement.setAttribute('data-theme', 'black');
 };
 
 const setLight = () => {
   localStorage.setItem('theme', 'light');
-  document.documentElement.setAttribute('data-theme', 'light');
+  document.documentElement.setAttribute('data-theme', 'garden');
 };
 
 const storedTheme = !ISSERVER ? localStorage.getItem('theme') : null;

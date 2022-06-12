@@ -5,6 +5,8 @@
   flex-direction: row;
   align-items: center;
   gap: 4px;
+  margin: auto 0;
+  padding-top: 1rem;
 }
 
 .toggleThemeWrapper span {
