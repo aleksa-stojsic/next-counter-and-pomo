@@ -13,7 +13,7 @@ export default function Pomo() {
   useEffect(() => {
     const sound = new Howl({
       src: ['firework.mp3'],
-      volume: 0.6
+      volume: 0.4
     });
 
     if (auto && !autoDown) {
