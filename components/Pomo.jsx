@@ -38,7 +38,6 @@ export default function Pomo() {
           volume: 0.3
         });
 
-        sound.play();
         confetti({
           particleCount: 150,
           startVelocity: 30,
@@ -49,8 +48,9 @@ export default function Pomo() {
             y: Math.random() - 0.1
           }
         });
+        sound.play();
+
         setTimeout(() => {
-          sound.play();
           confetti({
             particleCount: 150,
             startVelocity: 30,
@@ -61,9 +61,10 @@ export default function Pomo() {
               y: Math.random() - 0.1
             }
           });
+          sound.play();
         }, 500);
+
         setTimeout(() => {
-          sound.play();
           confetti({
             particleCount: 150,
             startVelocity: 30,
@@ -74,11 +75,13 @@ export default function Pomo() {
               y: Math.random() - 0.1
             }
           });
+          sound.play();
         }, 1000);
         setAuto(false);
         setCount('🏁');
         setWork('✔️ Work done, great job!');
         setPomodoro(false);
+
         setTimeout(() => {
           confetti.reset();
         }, 4000);
