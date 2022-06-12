@@ -11,7 +11,7 @@ export default function Layout({ children }) {
             </span>{' '}
             by{' '}
             <a
-              href='https://github.com/aleksa-stojsic'
+              href='https://github.com/aleksa-stojsic/next-counter-and-pomo'
               className='link link-primary link-hover'
               target='_blank'
               rel='noreferrer'
