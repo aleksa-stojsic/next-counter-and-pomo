@@ -10,86 +10,6 @@ export default function Pomo() {
   const [pomodoro, setPomodoro] = useState(false);
   const [work, setWork] = useState('🍅 Start working');
 
-  useEffect(() => {
-    if (auto && !autoDown) {
-      const interval = setInterval(() => {
-        setCount(count + 1);
-      }, 1000);
-
-      if (count === '🏁') {
-        setCount(0);
-        setWork('🍅 Start working');
-      }
-      return () => clearInterval(interval);
-    }
-    if (auto && autoDown) {
-      const sound = new Howl({
-        src: ['firework.mp3'],
-        volume: 0.3
-      });
-
-      const interval = setInterval(() => {
-        setCount(count - 1);
-      }, 1000);
-
-      if (count === '🏁') {
-        setCount(0);
-        setWork('🍅 Start working');
-      }
-
-      if (count === 0 && pomodoro) {
-        confetti({
-          particleCount: 150,
-          startVelocity: 30,
-          spread: 360,
-          origin: {
-            x: Math.random(),
-            // since they fall down, start a bit higher than random
-            y: Math.random() - 0.1
-          }
-        });
-        sound.play();
-
-        setTimeout(() => {
-          confetti({
-            particleCount: 150,
-            startVelocity: 30,
-            spread: 360,
-            origin: {
-              x: Math.random(),
-              // since they fall down, start a bit higher than random
-              y: Math.random() - 0.1
-            }
-          });
-          sound.play();
-        }, 500);
-
-        setTimeout(() => {
-          confetti({
-            particleCount: 150,
-            startVelocity: 30,
-            spread: 360,
-            origin: {
-              x: Math.random(),
-              // since they fall down, start a bit higher than random
-              y: Math.random() - 0.1
-            }
-          });
-          sound.play();
-        }, 1000);
-        setAuto(false);
-        setCount('🏁');
-        setWork('✔️ Work done, great job!');
-        setPomodoro(false);
-
-        setTimeout(() => {
-          confetti.reset();
-        }, 4000);
-      }
-      return () => clearInterval(interval);
-    }
-  }, [auto, count, autoDown, pomodoro]);
-
   const upOne = () => {
     if (count === '🏁') {
       setCount(0);
@@ -166,6 +86,87 @@ export default function Pomo() {
 
   const minutes = String(Math.floor(count / 60)).padStart(2, '0');
   const seconds = String(count - minutes * 60).padStart(2, '0');
+
+  useEffect(() => {
+    if (auto && !autoDown) {
+      const interval = setInterval(() => {
+        setCount(count + 1);
+      }, 1000);
+
+      if (count === '🏁') {
+        setCount(0);
+        setWork('🍅 Start working');
+      }
+      return () => clearInterval(interval);
+    }
+    if (auto && autoDown) {
+      const interval = setInterval(() => {
+        setCount(count - 1);
+      }, 1000);
+
+      if (count === '🏁') {
+        setCount(0);
+        setWork('🍅 Start working');
+      }
+
+      if (pomodoro) {
+        const sound = new Howl({
+          src: ['firework.mp3'],
+          volume: 0.3
+        });
+        if (count === 0 && pomodoro) {
+          confetti({
+            particleCount: 150,
+            startVelocity: 30,
+            spread: 360,
+            origin: {
+              x: Math.random(),
+              // since they fall down, start a bit higher than random
+              y: Math.random() - 0.1
+            }
+          });
+          sound.play();
+
+          setTimeout(() => {
+            confetti({
+              particleCount: 150,
+              startVelocity: 30,
+              spread: 360,
+              origin: {
+                x: Math.random(),
+                // since they fall down, start a bit higher than random
+                y: Math.random() - 0.1
+              }
+            });
+            sound.play();
+          }, 500);
+
+          setTimeout(() => {
+            confetti({
+              particleCount: 150,
+              startVelocity: 30,
+              spread: 360,
+              origin: {
+                x: Math.random(),
+                // since they fall down, start a bit higher than random
+                y: Math.random() - 0.1
+              }
+            });
+            sound.play();
+          }, 1000);
+          setAuto(false);
+          setCount('🏁');
+          setWork('✔️ Work done, great job!');
+          setPomodoro(false);
+
+          setTimeout(() => {
+            confetti.reset();
+          }, 4000);
+        }
+      }
+      return () => clearInterval(interval);
+    }
+  }, [auto, count, autoDown, pomodoro]);
 
   return (
     <>
