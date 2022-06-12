@@ -187,7 +187,7 @@ export default function Pomo() {
         </div>
         <div className='flex flex-col items-center justify-center'>
           <span>
-            <span className='text-primary-500 text-xl transform: uppercase'>
+            <span className='text-primary-500 text-xl text-transform: uppercase'>
               {!pomodoro ? work : '🍅 focusing...'}
             </span>
           </span>
@@ -218,7 +218,7 @@ export default function Pomo() {
           <div className='flex flex-col items-center justify-center'>
             <button
               onClick={autoDownCount}
-              className='btn text-transform: uppercase w-full'
+              className='btn w-full'
               disabled={pomodoro}
             >
               ↕️ Auto Count Up/Down
@@ -228,7 +228,7 @@ export default function Pomo() {
             </span>
             <button
               onClick={autoCount}
-              className='btn text-transform: uppercase w-full'
+              className='btn w-full'
               disabled={pomodoro}
             >
               🔄 Auto Count On/Off
@@ -240,7 +240,7 @@ export default function Pomo() {
           <div className='divider'></div>
           <div className='flex flex-col items-center justify-center'>
             <button
-              className='btn btn-primary text-lg text-transform: uppercase w-full'
+              className='btn btn-primary text-lg w-full'
               onClick={controlPomodoro}
             >
               🍅 Pomodoro Start/End
