@@ -173,12 +173,7 @@ export default function Pomo() {
           {pomodoro ? minutes + ':' + seconds : count}
         </div>
         <div className='flex flex-col items-center justify-center'>
-          {/* <h1>Pomodoro & Timer</h1>
-          <p className={styles.count}>
-            {pomodoro ? minutes + ':' + seconds : count}
-          </p> */}
           <span>
-            {/* capitalize */}
             <span className='text-primary-500 text-xl transform: uppercase'>
               {!pomodoro ? work : '🍅 focusing...'}
             </span>
