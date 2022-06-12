@@ -11,6 +11,11 @@ export default function Pomo() {
   const [work, setWork] = useState('🍅 Start working');
 
   useEffect(() => {
+    const sound = new Howl({
+      src: ['firework.mp3'],
+      volume: 0.6
+    });
+
     if (auto && !autoDown) {
       const interval = setInterval(() => {
         setCount(count + 1);
@@ -33,9 +38,6 @@ export default function Pomo() {
       }
 
       if (count === 0 && pomodoro) {
-        const sound = new Howl({
-          src: ['firework.mp3']
-        });
         sound.play();
         confetti({
           particleCount: 150,
