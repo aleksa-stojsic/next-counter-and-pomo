@@ -23,6 +23,11 @@ export default function Pomo() {
       return () => clearInterval(interval);
     }
     if (auto && autoDown) {
+      const sound = new Howl({
+        src: ['firework.mp3'],
+        volume: 0.3
+      });
+
       const interval = setInterval(() => {
         setCount(count - 1);
       }, 1000);
@@ -33,11 +38,6 @@ export default function Pomo() {
       }
 
       if (count === 0 && pomodoro) {
-        const sound = new Howl({
-          src: ['firework.mp3'],
-          volume: 0.3
-        });
-
         confetti({
           particleCount: 150,
           startVelocity: 30,
