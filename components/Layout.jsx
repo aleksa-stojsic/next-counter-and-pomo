@@ -11,12 +11,12 @@ export default function Layout({ children }) {
             </span>{' '}
             by{' '}
             <a
-              href='https://github.com/aleksa-stojsic/next-counter-and-pomo'
+              href='https://github.com/aleksa-codes/next-counter-and-pomo'
               className='link link-primary link-hover'
               target='_blank'
               rel='noreferrer'
             >
-              Aleksa Stojsic
+              aleksa.codes
             </a>
           </p>
         </div>
