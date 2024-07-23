@@ -1,9 +1,6 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  content: [
-    './pages/**/*.{js,ts,jsx,tsx}',
-    './components/**/*.{js,ts,jsx,tsx}'
-  ],
+  content: ['./pages/**/*.{js,ts,jsx,tsx}', './components/**/*.{js,ts,jsx,tsx}'],
   theme: {
     extend: {}
   },
@@ -43,7 +40,7 @@ module.exports = {
       },
       {
         black: {
-          ...require('daisyui/src/colors/themes')['[data-theme=black]'],
+          ...require('daisyui/src/theming/themes')['black'],
           '--rounded-box': '1rem',
           '--rounded-btn': '.5rem',
           '--rounded-badge': '1.9rem',
