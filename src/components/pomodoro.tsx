@@ -99,15 +99,15 @@ export function Pomodoro() {
   const strokeDashoffset = circumference * (1 - progressPercentage / 100);
 
   return (
-    <Card className='w-full max-w-md mx-auto'>
-      <CardHeader className='flex flex-row justify-end items-center'>
+    <Card className='mx-auto w-full max-w-md'>
+      <CardHeader className='flex flex-row items-center justify-end'>
         <ThemeToggle />
       </CardHeader>
       <CardContent className='flex flex-col items-center justify-center p-6'>
-        <div className='relative w-64 h-64 mb-8'>
-          <svg className='w-full h-full' viewBox='0 0 100 100'>
+        <div className='relative mb-8 h-64 w-64'>
+          <svg className='h-full w-full' viewBox='0 0 100 100'>
             <circle
-              className='text-muted stroke-current'
+              className='stroke-current text-muted'
               strokeWidth='5'
               cx='50'
               cy='50'
@@ -115,7 +115,7 @@ export function Pomodoro() {
               fill='transparent'
             />
             <circle
-              className={cn('text-blue-600 stroke-current', !settings.pomodoro && 'hidden')}
+              className={cn('stroke-current text-blue-600', !settings.pomodoro && 'hidden')}
               strokeWidth='5'
               strokeLinecap='round'
               cx='50'
@@ -127,16 +127,16 @@ export function Pomodoro() {
               transform='rotate(-90 50 50)'
             />
           </svg>
-          <div className='absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-4xl font-bold'>
+          <div className='absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 transform text-4xl font-bold'>
             {settings.pomodoro ? `${minutes}:${seconds}` : count}
           </div>
         </div>
 
-        <h2 className='text-2xl font-semibold mb-4 text-center'>
+        <h2 className='mb-4 text-center text-2xl font-semibold'>
           {!settings.pomodoro ? settings.workMessage : '🍅 Focusing...'}
         </h2>
 
-        <div className='grid grid-cols-3 gap-2 mb-6 w-full'>
+        <div className='mb-6 grid w-full grid-cols-3 gap-2'>
           <Button onClick={() => handleCountChange(-1)} disabled={settings.pomodoro} variant='outline'>
             -1
           </Button>
@@ -148,8 +148,8 @@ export function Pomodoro() {
           </Button>
         </div>
 
-        <div className='flex flex-col items-center gap-4 w-full mb-6'>
-          <div className='flex items-center justify-between w-full'>
+        <div className='mb-6 flex w-full flex-col items-center gap-4'>
+          <div className='flex w-full items-center justify-between'>
             <span>Auto count direction: {settings.autoDown ? 'down' : 'up'}</span>
             <Button
               onClick={() => toggleSetting('autoDown')}
@@ -160,7 +160,7 @@ export function Pomodoro() {
               {settings.autoDown ? <ArrowDown className='h-4 w-4' /> : <ArrowUp className='h-4 w-4' />}
             </Button>
           </div>
-          <div className='flex items-center justify-between w-full'>
+          <div className='flex w-full items-center justify-between'>
             <span>Auto count: {settings.auto ? 'on' : 'off'}</span>
             <Switch
               checked={settings.auto}
@@ -170,7 +170,7 @@ export function Pomodoro() {
           </div>
         </div>
 
-        <Button className='w-full mb-4' onClick={controlPomodoro} size='lg'>
+        <Button className='mb-4 w-full' onClick={controlPomodoro} size='lg'>
           {settings.pomodoro ? (
             <>
               <Pause className='mr-2 h-5 w-5' /> End Pomodoro
@@ -182,7 +182,7 @@ export function Pomodoro() {
           )}
         </Button>
 
-        <p className='text-sm text-muted-foreground text-center'>
+        <p className='text-center text-sm text-muted-foreground'>
           Focus for 30min. Don&apos;t forget a small break after!
         </p>
       </CardContent>
