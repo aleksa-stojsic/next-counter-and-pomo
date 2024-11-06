@@ -1,8 +1,58 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Next.js Pomodoro Timer
+
+A modern, customizable Pomodoro Timer built with Next.js, TypeScript, and Tailwind CSS. Features a clean UI with dark mode support and interactive elements.
+
+## Demo
+
+Check out the live demo: [nextpomo.netlify.app](https://nextpomo.netlify.app)
+
+## About
+
+Started as a learning project for React Hooks (useState and useEffect) with a simple Counter app ⚛️. After implementing auto counting functionality, it evolved into a full-fledged Pomodoro timer 🍅 with Dark Mode support 🌙.
+
+## Features
+
+- 🍅 Pomodoro Timer with visual progress indicator
+- 🌓 Dark/Light mode toggle with system preference support
+- ⚡ Real-time countdown with circular progress bar
+- 🎉 Celebration confetti on timer completion
+- ⚙️ Customizable settings:
+  - Manual time adjustment (+1/-1 minutes)
+  - Quick set to 30 minutes
+  - Auto count direction (up/down)
+  - Auto count toggle
+- 📱 Responsive design
+- 🎨 Clean UI using shadcn/ui components
+
+## Tech Stack
+
+- [Next.js](https://nextjs.org/)
+- [TypeScript](https://www.typescriptlang.org/)
+- [Tailwind CSS](https://tailwindcss.com/)
+- [shadcn/ui](https://ui.shadcn.com/)
+- [Lucide Icons](https://lucide.dev/)
+- [Canvas Confetti](https://www.npmjs.com/package/canvas-confetti)
+- [next-themes](https://github.com/pacocoursey/next-themes)
 
 ## Getting Started
 
-First, run the development server:
+1. Clone the repository:
+
+```bash
+git clone https://github.com/aleksa-codes/next-counter-and-pomo.git
+```
+
+2. Install dependencies:
+
+```bash
+npm install
+# or
+yarn install
+# or
+pnpm install
+```
+
+3. Run the development server:
 
 ```bash
 npm run dev
@@ -10,27 +60,27 @@ npm run dev
 yarn dev
 # or
 pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+4. Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Usage
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+- Click the "Start Pomodoro" button to begin a timer session
+- Use +1/-1 buttons to adjust time before starting
+- Click "30" for a quick 30-minute timer
+- Toggle auto count and direction using the controls
+- Use the theme toggle in the top-right to switch between light/dark modes
+- Timer will show a completion message and celebration confetti when finished
 
-## Learn More
+## Contributing
 
-To learn more about Next.js, take a look at the following resources:
+Contributions are welcome! Please feel free to submit a Pull Request.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## License
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+[MIT License](LICENSE)
 
-## Deploy on Vercel
+## Author
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+Made with 💻 & ☕ by [aleksa.codes](https://github.com/aleksa-codes)
