@@ -8,7 +8,7 @@ Check out the live demo: [nextpomo.netlify.app](https://nextpomo.netlify.app)
 
 ## About
 
-Started as a learning project for React Hooks (useState and useEffect) with a simple Counter app ⚛️. After implementing auto counting functionality, it evolved into a full-fledged Pomodoro timer 🍅 with Dark Mode support 🌙.
+Started as a learning project for React Hooks (useState and useEffect) with a simple Counter app. After implementing auto counting functionality, it evolved into a full-fledged Pomodoro timer with Dark Mode support.
 
 ## Features
 
